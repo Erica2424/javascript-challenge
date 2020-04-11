@@ -29,19 +29,26 @@ function handleClick(){
  
     user_value = user_input.property("value");
 
+    if (user_value === "") {
+      buildTable(tableData);
+    } else {
+
     //console.log(tableData[100].datetime);
+
 
     for (let i = 0; i < tableData.length; i++) {
         console.log(tableData[i].datetime);
         if (user_value == tableData[i].datetime) {
-           filtereddate.push(tableData[i])     
+           filtereddate.push(tableData[i]) 
+        
         }
     }
+    buildTable(filtereddate);
+  }
 
 
 
 
-     buildTable(filtereddate);
 }
 
 d3.selectAll("#filter-btn").on("click", handleClick);
